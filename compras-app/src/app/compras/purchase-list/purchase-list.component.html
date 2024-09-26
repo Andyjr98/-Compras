@@ -1,0 +1,25 @@
+<h2>Lista de Compras</h2>
+<a routerLink="/compras/create" class="btn btn-primary">Crear Compra</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Cliente</th>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let purchase of purchases">
+      <td>{{ purchase.id }}</td>
+      <td>{{ purchase.cliente }}</td>
+      <td>{{ purchase.producto }}</td>
+      <td>{{ purchase.cantidad }}</td>
+      <td>
+        <button (click)="deletePurchase(purchase.id)" class="btn btn-danger">Eliminar</button>
+        <a [routerLink]="['/compras/edit', purchase.id]" class="btn btn-warning">Editar</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
